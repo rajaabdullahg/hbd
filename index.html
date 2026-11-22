@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#160d19">
+<meta name="description" content="A little birthday surprise made with love for Mushk.">
+<title>For Mushk ♡</title>
+<style>
+:root{--pink:#ff9fc8;--rose:#ff6fae;--cream:#fff4f8;--bg:#160d19}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--cream);font-family:ui-rounded,"Segoe UI",system-ui,-apple-system,sans-serif;background:radial-gradient(ellipse at 50% 0%,#51223f 0%,#241426 42%,#100b15 100%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.17;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.wrap{width:min(100% - 30px,760px);margin:auto;padding:34px 0 56px;position:relative}
+.top{text-align:center;margin:12px 0 24px}
+.eyebrow{display:inline-block;border:1px solid #ffc3dd55;border-radius:999px;padding:8px 15px;color:#ffd5e7;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;background:#ffffff0a}
+h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(48px,11vw,82px);line-height:1;margin:20px 0 10px;letter-spacing:-2px;text-shadow:0 0 35px #ff7eb455}
+h1 span{color:var(--pink);font-style:italic}
+.subtitle{color:#f5cddd;font-size:15px;letter-spacing:.5px;margin:0}
+.photo-shell{width:min(82vw,330px);margin:28px auto 25px;padding:9px;border-radius:28px;background:linear-gradient(145deg,#ffe2ef,#ff8fbe,#8b4770);box-shadow:0 18px 60px #ff75b52b,0 0 0 1px #fff5}
+.photo{display:block;width:100%;aspect-ratio:1/1.18;object-fit:cover;object-position:center 43%;border-radius:21px;border:3px solid #211321}
+.photo-note{text-align:center;color:#ffd5e7;font-family:Georgia,serif;font-style:italic;font-size:17px;margin-top:13px}
+.count-card{max-width:560px;margin:28px auto 22px;padding:23px 16px 20px;border:1px solid #ffc0dc3d;border-radius:24px;background:linear-gradient(145deg,#ffffff12,#ffffff05);box-shadow:inset 0 1px #ffffff12,0 18px 45px #0003;backdrop-filter:blur(10px);text-align:center}
+.count-title{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#ffc6df;margin:0 0 17px}
+.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.unit{padding:12px 5px;border-radius:16px;background:#ffffff0c;border:1px solid #ffffff12}
+.num{font-variant-numeric:tabular-nums;font-size:clamp(27px,7vw,42px);font-weight:700;color:#fff;line-height:1.1}
+.unit small{display:block;margin-top:7px;font-size:10px;letter-spacing:1.5px;color:#f7bcd6;text-transform:uppercase}
+.until{font-size:12px;color:#e8b8ce;margin:15px 0 0}
+.message{max-width:620px;margin:28px auto;padding:26px 22px;border-radius:24px;background:#fff8fb0c;border:1px solid #ffd0e333;text-align:center}
+.message h2{font-family:Georgia,serif;font-weight:500;font-size:30px;color:#ffc1dc;margin:0 0 14px}
+.message p{color:#f9dfeb;line-height:1.8;font-size:15px;margin:0}
+.reveal{display:block;margin:25px auto 0;border:0;border-radius:999px;padding:14px 25px;color:#42182e;background:linear-gradient(110deg,#ffe0ed,#ff9fc8);font-weight:750;font-size:14px;letter-spacing:.4px;box-shadow:0 8px 28px #ff76b54d;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.reveal:active{transform:scale(.97)}
+.hidden-note{display:none;margin:20px auto 0;max-width:560px;padding:22px;border-radius:20px;background:#ffb4d51a;border:1px solid #ffc7df55;color:#fff0f6;line-height:1.85;text-align:center;animation:pop .55s ease both}
+.hidden-note.show{display:block}
+.footer{text-align:center;color:#dba9c2;font-size:12px;letter-spacing:1px;margin-top:35px}
+.heart{position:fixed;bottom:-35px;pointer-events:none;z-index:0;opacity:0;animation:floatUp linear forwards}
+.spark{position:fixed;pointer-events:none;color:#ffd8e8;animation:twinkle 2.5s ease-in-out infinite}
+@keyframes floatUp{0%{transform:translateY(0) rotate(0);opacity:0}12%{opacity:.75}100%{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:.9;transform:scale(1.15)}}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+@media(min-width:700px){.wrap{padding-top:45px}.photo-shell{width:310px}.count-card{padding:27px}.message{padding:32px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Birthday wishes tabs */
+.tabs-wrap{max-width:650px;margin:30px auto 0}
+.tabs-heading{text-align:center;font-family:Georgia,serif;font-size:29px;font-weight:500;color:#ffd0e4;margin:0 0 8px}
+.tabs-sub{text-align:center;color:#e9bdd0;font-size:13px;line-height:1.7;margin:0 auto 18px;max-width:480px}
+.tab-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:13px}
+.tab-btn{border:1px solid #ffc6df44;background:#ffffff0a;color:#f8d8e6;border-radius:14px;padding:12px 7px;font:600 12px/1.3 inherit;cursor:pointer;min-height:48px;transition:.2s}
+.tab-btn.active{background:linear-gradient(120deg,#ffe0ed,#ff9fc8);color:#42182e;border-color:transparent;box-shadow:0 7px 22px #ff76b544}
+.tab-panel{display:none;padding:23px 20px;border-radius:22px;border:1px solid #ffc6df44;background:linear-gradient(145deg,#ffffff12,#ffffff06);box-shadow:0 16px 40px #0003;animation:pop .35s ease both}
+.tab-panel.active{display:block}
+.tab-panel h3{font-family:Georgia,serif;font-size:25px;font-weight:500;color:#ffc5de;margin:0 0 13px}
+.tab-panel p{color:#f9e2ec;font-size:14px;line-height:1.95;margin:0 0 12px}
+.tab-panel p:last-child{margin-bottom:0}
+.tab-ornament{text-align:center;font-size:22px;margin:0 0 10px}
+.tab-tip{text-align:center;color:#e6b6cb;font-size:11px;letter-spacing:1px;margin:13px 0 0}
+@media(max-width:390px){.tab-btn{font-size:11px;padding:10px 4px}.tab-panel{padding:20px 16px}.tab-panel p{font-size:13px}}
+
+
+/* Extra dreamy birthday styling */
+body{background:
+ radial-gradient(ellipse at 8% 15%,#a3437560 0,transparent 27%),
+ radial-gradient(ellipse at 92% 24%,#6b3a8660 0,transparent 25%),
+ radial-gradient(ellipse at 50% 75%,#632b4d55 0,transparent 35%),
+ linear-gradient(155deg,#100914 0%,#241226 45%,#100b17 100%)}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.12;background:repeating-linear-gradient(115deg,transparent 0 34px,#ffd7e8 35px,transparent 36px 70px);mask-image:linear-gradient(transparent,black 30%,transparent)}
+.wrap{z-index:1}
+.top{position:relative;padding:13px 0 4px}
+.hero-crown{font-size:29px;color:#ffd4e7;letter-spacing:7px;margin:13px 0 0;text-shadow:0 0 22px #ff8dbc}
+.birthday-title{margin:13px 0 12px;display:flex;flex-direction:column;align-items:center;gap:1px;line-height:.98;letter-spacing:1px}
+.title-line{font-family:Georgia,serif;font-size:clamp(31px,8vw,57px);font-weight:700;letter-spacing:clamp(1px,1vw,5px);background:linear-gradient(90deg,#fff4fa,#ff8fc1,#fff1c9,#f5a9ff,#fff4fa);background-size:260% auto;color:transparent;background-clip:text;-webkit-background-clip:text;animation:shimmer 5s linear infinite,softGlow 2.8s ease-in-out infinite alternate}
+.name-line{font-family:Georgia,serif;font-size:clamp(65px,17vw,112px);font-weight:700;letter-spacing:clamp(3px,2vw,10px);background:linear-gradient(100deg,#ff9fc8,#fff0f7,#ffcae2,#dba7ff,#ff9fc8);background-size:300% auto;color:transparent;background-clip:text;-webkit-background-clip:text;animation:shimmer 4s linear infinite;text-shadow:0 0 35px #ff8cbd38}
+.title-heart{font-size:35px;color:#ffc7df;line-height:1.1;animation:heartbeat 1.7s ease-in-out infinite;text-shadow:0 0 20px #ff6fae}
+.hero-ribbon{display:inline-flex;align-items:center;gap:10px;margin-top:14px;padding:9px 16px;border-radius:999px;border:1px solid #ffc6df55;background:linear-gradient(90deg,#ffffff08,#ffacd21a,#ffffff08);color:#ffdaea;font-size:10px;letter-spacing:2px;box-shadow:0 0 25px #ff8dbc1a}
+.hero-ribbon span{color:#ffe4a9;font-size:14px}
+.eyebrow{box-shadow:0 0 24px #ff91c51c}
+.photo-shell{position:relative;margin-top:32px}
+.photo-shell:before,.photo-shell:after{content:"✦";position:absolute;color:#ffe0ed;font-size:24px;text-shadow:0 0 18px #ff83b8;z-index:2;animation:twinkle 2.4s infinite}
+.photo-shell:before{left:-17px;top:28px}.photo-shell:after{right:-17px;bottom:32px;animation-delay:1s}
+.photo{box-shadow:inset 0 0 0 2px #fff}
+.photo-note{letter-spacing:.4px;text-shadow:0 0 16px #ff9fc855}
+.count-card,.tab-panel{box-shadow:0 18px 55px #0004,0 0 35px #ff9fc80b,inset 0 1px #ffffff19}
+.count-card{position:relative;overflow:hidden}
+.count-card:before{content:"";position:absolute;inset:-80% -30%;background:linear-gradient(110deg,transparent 42%,#ffffff0a 50%,transparent 58%);transform:rotate(8deg);animation:cardShine 8s linear infinite;pointer-events:none}
+.unit{transition:transform .2s,border-color .2s}
+.unit:hover{transform:translateY(-4px);border-color:#ffc0dc66}
+.num{text-shadow:0 0 22px #ff9fc855}
+.tabs-heading{text-shadow:0 0 22px #ff8dbc44}
+.tab-btn{font-family:inherit;box-shadow:0 5px 18px #0002}
+.tab-btn:hover{transform:translateY(-2px);border-color:#ffc6df99}
+.tab-panel{position:relative;overflow:hidden}
+.tab-panel:after{content:"✧";position:absolute;right:15px;top:9px;color:#ffcae2;font-size:25px;opacity:.45}
+.tab-panel h3{text-shadow:0 0 18px #ff9fc833}
+.reveal{background:linear-gradient(110deg,#fff0f7,#ff9fc8,#ffe6ef);background-size:200% auto;animation:shimmer 5s linear infinite,buttonGlow 2.5s ease-in-out infinite}
+.footer{padding-top:18px;border-top:1px solid #ffc6df22;max-width:380px;margin:38px auto 0}
+@keyframes shimmer{to{background-position:260% center}}
+@keyframes softGlow{from{filter:drop-shadow(0 0 5px #ff8fbd55)}to{filter:drop-shadow(0 0 18px #ff8fbd99)}}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes cardShine{0%{transform:translateX(-65%) rotate(8deg)}100%{transform:translateX(65%) rotate(8deg)}}
+@keyframes buttonGlow{0%,100%{box-shadow:0 8px 25px #ff76b533}50%{box-shadow:0 8px 35px #ff76b577}}
+@media(max-width:390px){.hero-ribbon{font-size:9px;letter-spacing:1.3px;padding:8px 12px}.title-line{font-size:clamp(28px,7.5vw,38px)}}
+@media(prefers-reduced-motion:reduce){.title-line,.name-line,.title-heart,.reveal,.count-card:before{animation:none!important}}
+
+
+/* Final polish: elegant glass cards, animated accents and refined spacing */
+:root{--pink:#ffacd0;--rose:#ff78b5;--lav:#d8a8ff;--gold:#ffe3b0}
+.wrap{max-width:790px}.top{padding-top:20px}
+.eyebrow{backdrop-filter:blur(12px);background:linear-gradient(110deg,#ffffff12,#ffb7d31c);border-color:#ffd6e755;box-shadow:0 0 30px #ff9fc81b,inset 0 1px #fff3}
+.birthday-title{position:relative;isolation:isolate;padding:7px 0 10px}
+.birthday-title:before{content:"";position:absolute;z-index:-1;width:min(85vw,480px);height:105px;top:23%;left:50%;transform:translateX(-50%);background:radial-gradient(ellipse,#ff85bd30,transparent 68%);filter:blur(12px)}
+.title-line{letter-spacing:clamp(2px,1.4vw,7px);font-size:clamp(30px,8vw,60px)}
+.name-line{font-size:clamp(72px,18vw,122px);letter-spacing:clamp(4px,2.4vw,13px);filter:drop-shadow(0 5px 20px #ff8fbd44)}
+.hero-ribbon{box-shadow:0 8px 28px #0002,inset 0 1px #fff2}
+.photo-shell{padding:8px;border-radius:31px;background:linear-gradient(135deg,#fff1f7,#ff8fbd 35%,#cba0ef 68%,#ffe3b0);box-shadow:0 20px 65px #ff82b52b,0 0 0 1px #fff6}
+.photo{border-radius:24px;aspect-ratio:1/1.15}
+.count-card{border-radius:28px;background:linear-gradient(135deg,#ffffff13,#ffafd00d 55%,#c7a1ff0b);border-color:#ffd0e34d}
+.count-title{font-weight:700}.unit{border-radius:18px;background:linear-gradient(145deg,#ffffff15,#ffffff05);box-shadow:inset 0 1px #fff2,0 5px 16px #0002}
+.tab-nav{gap:9px}.tab-btn{border-radius:16px;background:linear-gradient(145deg,#ffffff10,#ffffff05);border-color:#ffd0e344;min-height:53px;letter-spacing:.15px}
+.tab-btn.active{background:linear-gradient(115deg,#ffe8f2,#ffacd0 55%,#e8c2ff);box-shadow:0 8px 25px #ff85b544,inset 0 1px #fff9}
+.tab-panel{border-radius:26px;background:linear-gradient(145deg,#ffffff16,#ffffff07);border-color:#ffd0e34d;padding:27px 24px;box-shadow:0 18px 50px #0003,inset 0 1px #fff2}
+.tab-panel h3{font-size:27px}.tab-panel p{font-size:15px;line-height:2.02}.tabs-sub{max-width:510px;line-height:1.85}
+.tab-tip{letter-spacing:1.4px;line-height:1.8}.photo-note{font-size:18px}.footer{letter-spacing:2px}
+@media(max-width:430px){.tab-nav{gap:7px}.tab-btn{min-height:49px;border-radius:13px}.tab-panel{padding:22px 18px}.tab-panel p{font-size:14px;line-height:1.9}.name-line{letter-spacing:4px}}
+
+/* Surprise experience */
+.surprise-intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 50% 35%,#74395e,#1b1020 58%,#0d0912 100%);transition:opacity .8s ease,visibility .8s ease}
+.surprise-intro.opened{opacity:0;visibility:hidden;pointer-events:none}
+.intro-card{text-align:center;max-width:420px;animation:introFloat 3s ease-in-out infinite}
+.intro-seal{width:88px;height:88px;margin:0 auto 22px;display:grid;place-items:center;border-radius:50%;font-size:38px;background:linear-gradient(145deg,#fff0f7,#ff98c3);color:#7d3156;box-shadow:0 0 0 9px #ffc7df15,0 0 55px #ff9fc866;border:1px solid #fff6}
+.intro-card h2{font-family:Georgia,serif;font-size:clamp(34px,10vw,58px);line-height:1.05;margin:0 0 10px}
+.intro-card p{color:#edcada;margin:0 0 24px;line-height:1.7}
+.open-btn{border:0;border-radius:999px;padding:16px 28px;color:#54233a;background:linear-gradient(110deg,#fff4f8,#ffabc7,#ead0ff);font:800 14px inherit;letter-spacing:.5px;cursor:pointer;box-shadow:0 12px 35px #ff91bd55;transition:.25s}
+.open-btn:hover{transform:translateY(-3px) scale(1.03)}
+.top{animation:pageEnter .9s .2s ease both}
+.photo-shell{animation:pageEnter 1s .35s ease both}
+.photo-shell{overflow:hidden;isolation:isolate}
+.photo-shell:before{content:"";position:absolute;inset:0;border-radius:23px;z-index:3;pointer-events:none;background:linear-gradient(125deg,#fff5 0%,transparent 22%,transparent 70%,#ffcae222 100%)}
+.photo-shell .photo{width:100%;object-position:center 43%;transition:transform .7s cubic-filter .35s,filter .35s;filter:saturate(.96) contrast(1.02)}
+.photo-shell:hover .photo{transform:scale(1.035);filter:saturate(1.08) contrast(1.04)}
+.count-card{backdrop-filter:blur(16px);animation:pageEnter 1s .5s ease both}
+.unit{position:relative;overflow:hidden}
+.unit:after{content:"";position:absolute;width:38px;height:38px;border-radius:50%;right:-22px;top:-22px;background:#ffc1da18}
+.tabs-wrap{animation:pageEnter 1s .65s ease both}
+.tab-btn{position:relative;overflow:hidden}
+.tab-btn:after{content:"";position:absolute;inset:0;transform:translateX(-110%);background:linear-gradient(100deg,transparent,#fff5,transparent);transition:.5s}
+.tab-btn:hover:after{transform:translateX(110%)}
+.tab-panel{min-height:330px}
+.footer{margin-bottom:12px}
+.confetti{position:fixed;z-index:45;top:-25px;width:9px;height:14px;border-radius:3px;pointer-events:none;animation:confettiFall linear forwards}
+@keyframes introFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pageEnter{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes confettiFall{to{transform:translateY(110vh) rotate(720deg);opacity:.2}}
+@media(max-width:430px){
+  .photo-shell{width:min(88vw,330px)}
+  .tab-panel{min-height:0}
+  .tab-nav{position:sticky;top:8px;z-index:5;padding:5px;border-radius:20px;background:#180f1dbd;backdrop-filter:blur(12px)}
+  .tabs-heading{font-size:27px}
+}
+@media(prefers-reduced-motion:reduce){.surprise-intro,.intro-card,.top,.photo-shell,.count-card,.tabs-wrap{animation:none!important}}
+
+/* Four photo wish panels */
+.tab-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tab-panel{background-position:center;background-size:cover;isolation:isolate}
+.tab-panel:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(145deg,#160b20e8,#2d1729bd 58%,#160b20e8)}
+#tab-dua{background-image:url("https://i.ibb.co/N6jgmjvN/2dc153ce-2693-482b-87a4-ddf8d27d609f.jpg")}
+#tab-khushi{background-image:url("https://i.ibb.co/ks6K0Qqm/26a55252-f6bc-4903-af2e-045795c98e5a.jpg")}
+#tab-sehat{background-image:url("https://i.ibb.co/N6jgmjvN/2dc153ce-2693-482b-87a4-ddf8d27d609f.jpg")}
+#tab-special{background-image:url("https://i.ibb.co/CpRkM3fF/ce7c146d-4b78-49b8-a944-599e58ad20da.jpg")}
+.tab-panel h3,.tab-panel p,.tab-panel .tab-ornament{position:relative;z-index:1;text-shadow:0 2px 14px #120915}
+.tab-panel h3{color:#fff0f7}.tab-panel p{color:#fff3f8}
+@media(max-width:430px){.tab-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.tab-btn{font-size:11px}}
+
+/* Birthday wish finale */
+.wish-section{max-width:650px;margin:34px auto 0;text-align:center}
+.wish-card{position:relative;overflow:hidden;padding:32px 22px 28px;border-radius:28px;border:1px solid #ffd0e34d;background:linear-gradient(145deg,#ffffff16,#ffb4d10d 55%,#d3adff0b);box-shadow:0 22px 60px #0003,inset 0 1px #fff2;backdrop-filter:blur(14px)}
+.wish-card:before{content:"";position:absolute;width:250px;height:250px;border-radius:50%;left:-140px;top:-160px;background:#ff98c328;filter:blur(20px)}
+.wish-card:after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-130px;bottom:-170px;background:#d9adff22;filter:blur(20px)}
+.wish-card h2{position:relative;font-family:Georgia,serif;font-size:29px;font-weight:500;margin:0 0 8px;color:#ffdaea}
+.wish-card>p{position:relative;margin:0 auto 20px;color:#e9bdd0;font-size:13px;line-height:1.75}
+.cake{position:relative;width:180px;height:112px;margin:8px auto 20px}
+.cake-top{position:absolute;left:25px;right:25px;top:26px;height:42px;border-radius:50%;background:linear-gradient(135deg,#fff1f7,#ffc2da);box-shadow:0 7px 20px #ff89b855,inset 0 -8px #ed9abd}
+.cake-base{position:absolute;left:15px;right:15px;top:48px;height:54px;border-radius:8px 8px 22px 22px;background:linear-gradient(135deg,#ffb1d0,#e68fb4);box-shadow:0 13px 25px #0003,inset 0 -11px #c66f99}
+.cake-base:after{content:"";position:absolute;left:0;right:0;top:15px;height:8px;background:repeating-linear-gradient(90deg,#fff0f7 0 13px,#dba0da 13px 19px,#fff0f7 19px 32px);border-radius:5px}
+.candle{position:absolute;z-index:2;top:-2px;width:8px;height:36px;border-radius:5px;background:linear-gradient(90deg,#fff,#ffe3ef,#dca3cc);box-shadow:0 3px 8px #0002}
+.candle:before{content:"";position:absolute;width:12px;height:17px;left:-2px;top:-15px;border-radius:70% 40% 70% 40%;background:linear-gradient(45deg,#fff2a5,#ff9f68,#fff);transform:rotate(45deg);box-shadow:0 0 16px #ffe4a5;animation:candleFlame .7s ease-in-out infinite alternate}
+.candle:nth-child(1){left:69px}.candle:nth-child(2){left:86px;top:-9px}.candle:nth-child(3){left:103px}
+.cake.blown .candle:before{opacity:0;transform:scale(.2);transition:.25s}
+.wish-btn{position:relative;z-index:2;border:0;border-radius:999px;padding:15px 24px;background:linear-gradient(110deg,#fff0f7,#ffacd0,#ead0ff);color:#59243d;font:800 13px inherit;letter-spacing:.2px;cursor:pointer;box-shadow:0 10px 28px #ff83b64a;transition:.25s}
+.wish-btn:hover{transform:translateY(-3px);box-shadow:0 14px 34px #ff83b66a}
+.wish-result{display:none;position:relative;z-index:2;margin:18px auto 0;max-width:470px;padding:15px 16px;border-radius:17px;border:1px solid #ffcbe355;background:#ffc7df12;color:#fff0f7;line-height:1.8;animation:pop .5s ease both}
+.wish-result.show{display:block}
+.music-btn{position:fixed;z-index:20;right:16px;bottom:16px;width:48px;height:48px;border-radius:50%;border:1px solid #ffd2e55c;background:#241526cc;color:#ffd8e9;backdrop-filter:blur(12px);box-shadow:0 8px 25px #0005;cursor:pointer;font-size:17px;transition:.25s}
+.music-btn:hover{transform:scale(1.08)}
+.music-btn.playing{box-shadow:0 0 25px #ff91bd66,0 8px 25px #0005}
+.magic-pulse{position:fixed;width:220px;height:220px;border-radius:50%;pointer-events:none;z-index:-1;opacity:.13;filter:blur(35px);background:#ff91bd;transform:translate(-50%,-50%)}
+@keyframes candleFlame{from{transform:rotate(42deg) scale(.92)}to{transform:rotate(48deg) scale(1.08)}}
+
+@media(max-width:430px){
+  .wish-card{padding:28px 16px 24px}
+  .wish-card h2{font-size:26px}
+  .cake{transform:scale(.92)}
+  .music-btn{right:11px;bottom:11px;width:44px;height:44px}
+}
+
+</style>
+</head>
+<body>
+<div class="surprise-intro" id="surpriseIntro" aria-label="Birthday surprise">
+  <div class="intro-card">
+    <div class="intro-seal">♡</div>
+    <h2>Ek khaas surprise hai...</h2>
+    <p>Sirf Mushk ke liye, dil se banaya gaya.</p>
+    <button class="open-btn" id="openSurprise" type="button">Surprise kholo ✨</button>
+  </div>
+</div>
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">✦ A little universe made just for you ✦</div>
+    <div class="hero-crown" aria-hidden="true">୨୧</div>
+    <h1 class="birthday-title"><span class="title-line">HAPPY BIRTHDAY</span><span class="name-line">MUSHK</span><span class="title-heart">♡</span></h1>
+    <p class="subtitle">Today, the world gets a little more beautiful because of you 🌷</p>
+    <div class="hero-ribbon"><span>✧</span> 23 NOVEMBER · YOUR SPECIAL DAY <span>✧</span></div>
+  </header>
+
+  <div class="photo-shell">
+    <img class="photo" src="https://i.ibb.co/C3ks05vT/e5e30709-417d-4208-8b6e-5610584a9338.jpg" alt="Mushk" loading="eager">
+  </div>
+  <div class="photo-note">A pretty little soul deserves the prettiest day 🌷</div>
+
+  <section class="count-card" aria-live="polite">
+    <p class="count-title" id="countTitle">The birthday magic begins in</p>
+    <div class="timer" id="timer">
+      <div class="unit"><div class="num" id="days">00</div><small>Days</small></div>
+      <div class="unit"><div class="num" id="hours">00</div><small>Hours</small></div>
+      <div class="unit"><div class="num" id="mins">00</div><small>Minutes</small></div>
+      <div class="unit"><div class="num" id="secs">00</div><small>Seconds</small></div>
+    </div>
+    <p class="until" id="until">23 November · 12:00 AM · Pakistan time</p>
+  </section>
+
+  <section class="tabs-wrap">
+    <h2 class="tabs-heading">Mushk ke liye khaas duaein ♡</h2>
+    <p class="tabs-sub">Har tab mein tumhare liye ek alag paighaam, ek nayi dua aur dil se nikli hui bohat saari mohabbat hai. Aaram se sab parhna. 🌷</p>
+
+    <div class="tab-nav" role="tablist" aria-label="Birthday wishes">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-tab="dua">🤲 Dil se Dua</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="khushi">🌸 Khushiyan</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="sehat">💗 Sehat & Sukoon</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-tab="special">🎂 Special Wish</button>
+    </div>
+
+    <article class="tab-panel active" id="tab-dua" role="tabpanel">
+      <div class="tab-ornament">🤲 🌙 🤍</div>
+      <h3>Sab se pehli aur sab se pyari dua</h3>
+      <p>Mushk, tumhari zindagi ke is naye saal ke shuru hone par meri dil se yehi dua hai ke Allah Pak tumhari har jaiz dua qubool farmaye. Tumhare naseeb mein woh tamam khushiyan likh de jin ka tum ne kabhi khamoshi se khwab dekha ho. Allah tumhare liye har mushkil ko asaan farmaye, har band darwazay ko apni rehmat se khol de aur tumhein hamesha seedhay aur behtareen raastay par chalaye.</p>
+      <p>Allah Pak tumhare dil ki har pareshani door kare, tumhari aankhon ko kabhi gham ke aansuon se nam na hone de aur agar kabhi zindagi mein koi imtehaan aaye to tumhein usay sabr, himmat aur yaqeen ke saath paar karne ki taqat ata farmaye. Tumhara har aane wala din guzray hue din se zyada khoobsurat ho. Ameen summa Ameen. 🤍</p>
+    </article>
+
+    <article class="tab-panel" id="tab-khushi" role="tabpanel">
+      <div class="tab-ornament">🌸 🦋 🌷</div>
+      <h3>Tumhari zindagi hamesha muskurati rahe</h3>
+      <p>Meri dua hai ke Mushk tumhari zindagi mein khushiyan kabhi kam na hon. Tumhari muskurahat hamesha isi tarah roshan rahe aur tumhein har subah koi na koi nayi wajah milay jis ki wajah se tum Allah ka shukar ada karo. Tumhare ghar mein mohabbat, barkat, izzat aur sukoon rahe. Tum jahan bhi raho, tumhare aas paas achay log hon jo tumhari qadar karein, tumhari izzat karein aur tumhare dil ko kabhi takleef na pohanchayein.</p>
+      <p>Allah kare tumhari zindagi se mayoosi ke saaye door ho jayein aur har taraf umeed, roshni aur khubsurat lamhay hon. Tumhari choti choti khwahishain bhi poori hon, tumhein be wajah hansne ke mauqay milain aur tumhare chehray ki muskurahat kabhi kisi pareshani ki nazar na ho. Hamesha khush raho, hansti raho aur apni pyari si muskurahat se apni duniya roshan rakho. 💗</p>
+    </article>
+
+    <article class="tab-panel" id="tab-sehat" role="tabpanel">
+      <div class="tab-ornament">💗 ☁️ 🕊️</div>
+      <h3>Sehat, sukoon aur dil ka chain</h3>
+      <p>Allah Pak tumhein hamesha sehat-o-aafiyat mein rakhay. Tumhari zindagi ko har us takleef, pareshani aur bechaini se mehfooz farmaye jo tumhare dil ya jism ko nuqsan pohanchaye. Tumhari neend pur-sukoon ho, tumhari subah umeed ke saath shuru ho aur tumhari har raat Allah ke karam aur hifazat mein guzray. Jab tum thak jao to Allah tumhein araam ata kare, jab tum udaas ho to tumhare dil ko sukoon de aur jab tum kamzor mehsoos karo to tumhein nayi himmat ata farmaye.</p>
+      <p>Mushk, apna khayal rakhna, apni sehat ko ahmiyat dena aur kabhi apni muskurahat ko duniya ki pareshaniyon ke hawalay mat karna. Meri dua hai ke tumhara dil hamesha mutmain rahe, tumhein apnon ka pyaar milay aur tum har din Allah ki rehmat ke saaye mein guzaro. Ameen. 🌷</p>
+    </article>
+
+    <article class="tab-panel" id="tab-special" role="tabpanel">
+      <div class="tab-ornament">🎂 💐 💖</div>
+      <h3>Happy Birthday, meri pyari Mushk!</h3>
+      <p>Aaj ka din tumhare naam, Mushk! Allah ka shukar hai ke tumhari zindagi mein ek aur naya saal shuru ho raha hai. Meri taraf se tumhein bohat bohat pyara sa Happy Birthday. Dua hai ke tumhara aaj ka din itna khoobsurat guzray ke tum isay hamesha muskurahat ke saath yaad rakho. Tumhein apnon ka pyaar mile, khoobsurat surprises milain, dil se nikli hui duaein milain aur tumhara har lamha khushi se bhar jaye.</p>
+      <p>Umar ke saath tumhari zindagi mein samajh, sukoon, rehmat aur barkat bhi barhti rahe. Tum apne khwabon ki taraf barhti raho, apni achi aadaton ko sambhal kar rakho aur Allah se apna rishta hamesha mazboot rakho. Yaad rakhna, asal khoobsurati achay dil, achay ikhlaaq aur Allah ke shukar mein hoti hai. Allah tumhein duniya ki har jaiz khushi aur aakhirat ki kamyaabi naseeb farmaye.</p>
+      <p><strong>Janam din bohat bohat mubarak ho, Mushk! Allah tumhein hamesha apni aman mein rakhay. Ameen. 🤍</strong></p>
+    </article>
+    <p class="tab-tip">HAR TAB PAR TAP KARO — HAR EK MEIN TUMHARE LIYE ALAG DUA HAI ♡</p>
+  </section>
+
+  <section class="wish-section">
+    <div class="wish-card">
+      <h2>Aaj dil se ek wish mango ♡</h2>
+      <p>Aankhein band karo, dil ki sab se pyari khwahish yaad karo, aur candles bujhane ke liye button dabao.</p>
+      <div class="cake" id="birthdayCake" aria-label="Birthday cake">
+        <div class="candle"></div><div class="candle"></div><div class="candle"></div>
+        <div class="cake-top"></div><div class="cake-base"></div>
+      </div>
+      <button class="wish-btn" id="makeWish" type="button">Make A Wish & Blow Candles 🕯️</button>
+      <div class="wish-result" id="wishResult">Umeed hai tumhari wish jaldi poori ho. Mushk, tumhari muskurahat aur tumhari khushi tumhare har khwab se pyari hai — is khaas din par bohat bohat pyaar. 🌸✨</div>
+    </div>
+  </section>
+  <footer class="footer">MADE WITH ♡ FOR MUSHK · 23 NOVEMBER</footer>
+</div>
+<button class="music-btn" id="musicBtn" type="button" aria-label="Play soft birthday melody" title="Soft birthday melody">♫</button>
+<div class="magic-pulse" id="magicPulse"></div>
+<script>
+(() => {
+  // Pakistan local midnight: 23 November 2026, Pakistan Standard Time (PKT).
+  const target = new Date('2026-11-23T00:00:00+05:00').getTime();
+  const $ = id => document.getElementById(id);
+  const pad = n => String(n).padStart(2,'0');
+  function update(){
+    const left = target - Date.now();
+    if(left <= 0){
+      $('countTitle').textContent = "It's your special day! 🎉";
+      $('timer').innerHTML = '<div style="grid-column:1/-1;font-family:Georgia,serif;font-size:clamp(27px,7vw,42px);color:#ffd0e4;padding:10px">HAPPY BIRTHDAY, MUSHK! ♡</div>';
+      $('until').textContent = '23 November · Your day has begun 🌸';
+      return;
+    }
+    const d = Math.floor(left/86400000);
+    const h = Math.floor(left%86400000/3600000);
+    const m = Math.floor(left%3600000/60000);
+    const s = Math.floor(left%60000/1000);
+    $('days').textContent=pad(d); $('hours').textContent=pad(h);
+    $('mins').textContent=pad(m); $('secs').textContent=pad(s);
+  }
+  update(); setInterval(update,1000);
+  // Lightweight decorative sparkles.
+  const sparkleChars = ['✦','✧','♡'];
+  for(let i=0;i<9;i++){
+    const s=document.createElement('span');
+    s.className='spark'; s.textContent=sparkleChars[i%3];
+    s.style.left=(7+i*11)+'%'; s.style.top=(10+(i%4)*19)+'%';
+    s.style.animationDelay=(i*.23)+'s'; s.style.fontSize=(10+(i%3)*4)+'px';
+    document.body.appendChild(s);
+  }
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const panel = document.getElementById('tab-' + btn.dataset.tab);
+      if (panel) panel.classList.add('active');
+      burst();
+    });
+    btn.addEventListener('keydown', event => {
+      if(event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+      event.preventDefault();
+      const buttons=[...document.querySelectorAll('.tab-btn')];
+      const current=buttons.indexOf(btn);
+      const next=event.key==='ArrowRight'
+        ? (current+1)%buttons.length
+        : (current-1+buttons.length)%buttons.length;
+      buttons[next].focus();
+      buttons[next].click();
+    });
+  });
+
+  function celebration(count=90){
+    const colors=['#ff9fc8','#ffd5e7','#fff1a8','#d8a8ff','#9fdcff','#ffffff'];
+    for(let i=0;i<count;i++){
+      const el=document.createElement('span');
+      el.className='confetti';
+      el.style.left=Math.random()*100+'vw';
+      el.style.background=colors[i%colors.length];
+      el.style.animationDuration=(2.5+Math.random()*3)+'s';
+      el.style.animationDelay=(Math.random()*1.2)+'s';
+      el.style.transform=`rotate(${Math.random()*180}deg)`;
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),6500);
+    }
+  }
+
+  $('openSurprise').addEventListener('click', () => {
+    $('surpriseIntro').classList.add('opened');
+    celebration(100);
+    burst();
+    playChime();
+  });
+
+  $('makeWish').addEventListener('click', () => {
+    const cake=$('birthdayCake');
+    const result=$('wishResult');
+    if(cake.classList.contains('blown')){
+      cake.classList.remove('blown');
+      result.classList.remove('show');
+      $('makeWish').textContent='Make A Wish & Blow Candles 🕯️';
+      return;
+    }
+    cake.classList.add('blown');
+    result.classList.add('show');
+    $('makeWish').textContent='Relight The Candles ✨';
+    celebration(140);
+    burst();
+    playChime();
+  });
+
+  let audioContext=null;
+  let musicTimer=null;
+  function playChime(){
+    try{
+      audioContext=audioContext || new (window.AudioContext || window.webkitAudioContext)();
+      [523.25,659.25,783.99].forEach((freq,index)=>{
+        const osc=audioContext.createOscillator();
+        const gain=audioContext.createGain();
+        osc.type='sine';osc.frequency.value=freq;
+        gain.gain.setValueAtTime(0.0001,audioContext.currentTime+index*.12);
+        gain.gain.exponentialRampToValueAtTime(.08,audioContext.currentTime+index*.12+.03);
+        gain.gain.exponentialRampToValueAtTime(.0001,audioContext.currentTime+index*.12+.55);
+        osc.connect(gain);gain.connect(audioContext.destination);
+        osc.start(audioContext.currentTime+index*.12);osc.stop(audioContext.currentTime+index*.12+.58);
+      });
+    }catch(e){}
+  }
+
+  function playSoftMelody(){
+    const notes=[523.25,523.25,587.33,523.25,698.46,659.25,523.25,523.25,587.33,523.25,783.99,698.46];
+    let i=0;
+    musicTimer=setInterval(()=>{
+      if(!audioContext) audioContext=new (window.AudioContext || window.webkitAudioContext)();
+      const osc=audioContext.createOscillator();
+      const gain=audioContext.createGain();
+      osc.type='sine';osc.frequency.value=notes[i++%notes.length];
+      gain.gain.setValueAtTime(.0001,audioContext.currentTime);
+      gain.gain.exponentialRampToValueAtTime(.045,audioContext.currentTime+.03);
+      gain.gain.exponentialRampToValueAtTime(.0001,audioContext.currentTime+.38);
+      osc.connect(gain);gain.connect(audioContext.destination);
+      osc.start();osc.stop(audioContext.currentTime+.4);
+    },430);
+  }
+
+  $('musicBtn').addEventListener('click',()=>{
+    const btn=$('musicBtn');
+    if(btn.classList.contains('playing')){
+      clearInterval(musicTimer);musicTimer=null;btn.classList.remove('playing');btn.textContent='♫';
+    }else{
+      playSoftMelody();btn.classList.add('playing');btn.textContent='❚❚';
+      playChime();
+    }
+  });
+
+  window.addEventListener('pointermove',event=>{
+    $('magicPulse').style.left=event.clientX+'px';
+    $('magicPulse').style.top=event.clientY+'px';
+  },{passive:true});
+
+  function burst(){
+    const symbols=['♡','💗','🌸','✨','💕'];
+    for(let i=0;i<22;i++){
+      const el=document.createElement('span');
+      el.className='heart';el.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+      el.style.left=Math.random()*100+'vw';
+      el.style.fontSize=(15+Math.random()*18)+'px';
+      el.style.animationDuration=(4+Math.random()*4)+'s';
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),8500);
+    }
+  }
+  setInterval(()=>{if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const el=document.createElement('span');el.className='spark';el.textContent='✦';el.style.left=Math.random()*100+'vw';el.style.top=Math.random()*85+'vh';el.style.fontSize=(9+Math.random()*10)+'px';document.body.appendChild(el);setTimeout(()=>el.remove(),2600)}},900);
+})();
+</script>
+</body>
+</html>
